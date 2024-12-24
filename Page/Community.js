@@ -65,10 +65,10 @@ export default function Community({navigation}) {
       <ScrollView style={styles.commentsContainer}>
         <View style={styles.commentCard}>
           <View style={styles.userInfo}>
-            {/* <Image 
-              source={require('../assets/profile1.jpg')} 
+            <Image 
+              source={require('../assets/Profile1.png')} 
               style={styles.profilePic}
-            /> */}
+            />
             <View>
               <Text style={styles.userName}>Alexander</Text>
               <Text style={styles.userEmail}>@alexander1997</Text>

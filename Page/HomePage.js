@@ -105,7 +105,34 @@ export default function Homepage({ navigation }) {
         </View>
       </ScrollView>
 
+<<<<<<< HEAD
       <Footer navigation={navigation} activeScreen={"HomePage"} />
+=======
+      <View style={styles.bottomNav}>
+        <TouchableOpacity style={styles.navItem}>
+          <Ionicons name="home" size={24} color="#003580" />
+          <Text style={styles.navText}>Home</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.navItem}
+        onPress={() => navigation.navigate('Community')}>
+          <Ionicons name="grid" size={24} color="#666" />
+          <Text style={styles.navText}>Program</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.navItem}>
+          <Ionicons name="location" size={24} color="#666" />
+          <Text style={styles.navText}>Trip</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.navItem}
+        onPress={() => navigation.navigate('Thread')}>
+          <Ionicons name="play" size={24} color="#666" />
+          <Text style={styles.navText}>Video</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.navItem}>
+          <Ionicons name="person" size={24} color="#666" />
+          <Text style={styles.navText}>Profile</Text>
+        </TouchableOpacity>
+      </View>
+>>>>>>> origin/master
     </View>
   );
 }

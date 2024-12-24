@@ -9,7 +9,7 @@ import Homepage from './Page/HomePage';
 import ListTrip from './Page/ListTrip';
 import TripDetail from './Page/TripDetail';
 import Community from './Page/Community';
-import Footer from './Components/Footer';
+import Thread from './Page/Thread';
 
 const Stack = createNativeStackNavigator();
 
@@ -25,6 +25,7 @@ export default function App() {
         <Stack.Screen name="ListTrip" component={ListTrip} />
         <Stack.Screen name="TripDetail" component={TripDetail} />
         <Stack.Screen name="Community" component={Community} />
+        <Stack.Screen name="Thread" component={Thread} />
       </Stack.Navigator>
     </NavigationContainer>
   );}
