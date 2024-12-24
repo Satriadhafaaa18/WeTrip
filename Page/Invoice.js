@@ -13,7 +13,7 @@ export const Invoice = () => {
         style={styles.backButton}
       >
         <Image 
-          source={require('./assets/PanahKiri.png')} 
+          source={require('../assets/PanahKiri.png')} 
           style={styles.backIcon} 
         />
       </TouchableOpacity>
@@ -21,7 +21,7 @@ export const Invoice = () => {
       <View style={styles.contentContainer}>
         <View style={styles.checkmarkContainer}>
           <Image 
-            source={require('./assets/Centang.png')} 
+            source={require('../assets/Centang.png')} 
             style={styles.checkmark}
           />
         </View>
