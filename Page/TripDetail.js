@@ -39,7 +39,8 @@ export default function TripDetail({ navigation }) {
       </ScrollView>
 
       <TouchableOpacity style={styles.bookButton}>
-        <Text style={styles.bookButtonText}>Book Trip</Text>
+        <Text style={styles.bookButtonText}
+        onPress={() => navigation.navigate("BookingForm")}>Book Trip</Text>
       </TouchableOpacity>
     </View>
   );

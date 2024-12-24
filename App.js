@@ -10,6 +10,11 @@ import ListTrip from './Page/ListTrip';
 import TripDetail from './Page/TripDetail';
 import Community from './Page/Community';
 import Thread from './Page/Thread';
+import BookingForm from './Page/BookingForm';
+import BookingSummary from './Page/BookingSummary';
+import Payment from './Page/Payment';
+import Invoice from './Page/Invoice';
+import InvoiceDetail from './Page/InvoiceDetail';
 
 const Stack = createNativeStackNavigator();
 
@@ -26,6 +31,11 @@ export default function App() {
         <Stack.Screen name="TripDetail" component={TripDetail} />
         <Stack.Screen name="Community" component={Community} />
         <Stack.Screen name="Thread" component={Thread} />
+        <Stack.Screen name="BookingForm" component={BookingForm} />
+        <Stack.Screen name="BookingSummary" component={BookingSummary} />
+        <Stack.Screen name="Payment" component={Payment} />
+        <Stack.Screen name="Invoice" component={Invoice} />
+        <Stack.Screen name="InvoiceDetail" component={InvoiceDetail} />
       </Stack.Navigator>
     </NavigationContainer>
   );}
