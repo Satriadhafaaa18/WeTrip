@@ -1,4 +1,4 @@
-// Community.js
+
 import React, { useState } from 'react';
 import { View, Text, TextInput, ScrollView, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
@@ -64,10 +64,10 @@ export default function Community() {
       <ScrollView style={styles.commentsContainer}>
         <View style={styles.commentCard}>
           <View style={styles.userInfo}>
-            <Image 
+            {/* <Image 
               source={require('../assets/profile1.jpg')} 
               style={styles.profilePic}
-            />
+            /> */}
             <View>
               <Text style={styles.userName}>Alexander</Text>
               <Text style={styles.userEmail}>@alexander1997</Text>

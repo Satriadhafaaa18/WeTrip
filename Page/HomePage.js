@@ -65,7 +65,8 @@ export default function Homepage({ navigation }) {
           <Ionicons name="home" size={24} color="#003580" />
           <Text style={styles.navText}>Home</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.navItem}>
+        <TouchableOpacity style={styles.navItem}
+        onPress={() => navigation.navigate('Community')}>
           <Ionicons name="grid" size={24} color="#666" />
           <Text style={styles.navText}>Program</Text>
         </TouchableOpacity>
