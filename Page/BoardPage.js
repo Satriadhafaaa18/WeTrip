@@ -1,12 +1,12 @@
-import React from 'react';
-import { View, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import React from "react";
+import { View, Image, TouchableOpacity, StyleSheet } from "react-native";
 
 export default function BoardPage({ navigation }) {
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={() => navigation.navigate('SplashScreen')}>
-        <Image 
-          source={require('../assets/LogoWeTrip.jpeg')}
+      <TouchableOpacity onPress={() => navigation.navigate("SplashScreen")}>
+        <Image
+          source={require("../assets/Logo.png")}
           style={styles.logo}
           resizeMode="contain"
         />
@@ -18,11 +18,13 @@ export default function BoardPage({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    paddingHorizontal: 20,
+    justifyContent: "center",
+    alignItems: "center",
+    // backgroundColor: "#fff",
+    // paddingHorizontal: 20,
   },
   logo: {
-    width: 650,
-    height: 850,
+    width: "300",
+    height: "300",
   },
 });
