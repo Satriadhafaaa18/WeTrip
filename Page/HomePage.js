@@ -74,7 +74,8 @@ export default function Homepage({ navigation }) {
           <Ionicons name="location" size={24} color="#666" />
           <Text style={styles.navText}>Trip</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.navItem}>
+        <TouchableOpacity style={styles.navItem}
+        onPress={() => navigation.navigate('Thread')}>
           <Ionicons name="play" size={24} color="#666" />
           <Text style={styles.navText}>Video</Text>
         </TouchableOpacity>
