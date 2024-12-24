@@ -2,8 +2,9 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, ScrollView, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import Footer from '../Components/Footer';
 
-export default function Community() {
+export default function Community({navigation}) {
   const [likes, setLikes] = useState({
     1: 157,
     2: 416,
@@ -100,28 +101,7 @@ export default function Community() {
         {/* You can repeat the above comment card structure with different data */}
       </ScrollView>
 
-      <View style={styles.bottomNav}>
-        <TouchableOpacity style={styles.navItem}>
-          <Ionicons name="home-outline" size={24} color="#666" />
-          <Text style={styles.navText}>Home</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.navItem}>
-          <Ionicons name="people" size={24} color="#00B4D8" />
-          <Text style={[styles.navText, styles.activeNavText]}>Community</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.navItem}>
-          <Ionicons name="location-outline" size={24} color="#666" />
-          <Text style={styles.navText}>Trip</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.navItem}>
-          <Ionicons name="play-outline" size={24} color="#666" />
-          <Text style={styles.navText}>Video</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.navItem}>
-          <Ionicons name="person-outline" size={24} color="#666" />
-          <Text style={styles.navText}>Profile</Text>
-        </TouchableOpacity>
-      </View>
+      <Footer navigation={navigation} activeScreen={"Community"}/>
     </View>
   );
 }
@@ -245,24 +225,5 @@ const styles = StyleSheet.create({
   commentCount: {
     marginLeft: 5,
     color: '#666',
-  },
-  bottomNav: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    padding: 10,
-    backgroundColor: '#fff',
-    borderTopWidth: 1,
-    borderTopColor: '#eee',
-  },
-  navItem: {
-    alignItems: 'center',
-  },
-  navText: {
-    fontSize: 12,
-    color: '#666',
-    marginTop: 5,
-  },
-  activeNavText: {
-    color: '#00B4D8',
   },
 });

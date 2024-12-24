@@ -9,6 +9,7 @@ import Homepage from './Page/HomePage';
 import ListTrip from './Page/ListTrip';
 import TripDetail from './Page/TripDetail';
 import Community from './Page/Community';
+import Footer from './Components/Footer';
 
 const Stack = createNativeStackNavigator();
 
