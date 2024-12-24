@@ -61,20 +61,20 @@ export default function Footer({ navigation, activeScreen }) {
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.navItem}
-        onPress={() => navigation.navigate("Video")}
+        onPress={() => navigation.navigate("Thread")}
       >
         <Ionicons
           name="play-outline"
           size={24}
-          color={activeScreen === "Video" ? "#00B4D8" : "#666"}
+          color={activeScreen === "Thread" ? "#00B4D8" : "#666"}
         />
         <Text
           style={[
             styles.navText,
-            activeScreen === "Video" && styles.activeNavText,
+            activeScreen === "Thread" && styles.activeNavText,
           ]}
         >
-          Video
+          Thread
         </Text>
       </TouchableOpacity>
       <TouchableOpacity

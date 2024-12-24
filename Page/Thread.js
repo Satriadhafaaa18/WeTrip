@@ -1,45 +1,52 @@
-import React, { useState } from 'react';
-import { View, Text, ScrollView, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  ScrollView,
+  Image,
+  TouchableOpacity,
+  StyleSheet,
+} from "react-native";
+import Footer from "../Components/Footer";
 
-
-const Thread = () => {
+const Thread = ({ navigation }) => {
   const [threads] = useState([
     {
       id: 1,
-      title: 'Day trips from Kyoto',
-      image: require('../assets/ThreadKyoto.png'),
-      date: '21 Aug 2024',
+      title: "Day trips from Kyoto",
+      image: require("../assets/ThreadKyoto.png"),
+      date: "21 Aug 2024",
       likes: 57,
       comments: 23,
       views: 289,
       author: {
-        name: 'Alex Smith',
-        email: 'alexsmith@dummy',
-        avatar: require('../assets/Profile1.png')
+        name: "Alex Smith",
+        email: "alexsmith@dummy",
+        avatar: require("../assets/Profile1.png"),
       },
-      description: 'Day trips from Kyoto offer diverse cultural experiences...'
+      description: "Day trips from Kyoto offer diverse cultural experiences...",
     },
     {
       id: 2,
-      title: 'Korea Street Food',
-      image: require('../assets/KoreanFood.png'),
-      date: '18 Aug 2024',
+      title: "Korea Street Food",
+      image: require("../assets/KoreanFood.png"),
+      date: "18 Aug 2024",
       likes: 45,
       comments: 18,
       views: 156,
       author: {
-        name: 'Sarah Kim',
-        email: 'sarah@mail',
-        avatar: require('../assets/Profile2.png')
+        name: "Sarah Kim",
+        email: "sarah@mail",
+        avatar: require("../assets/Profile2.png"),
       },
-      description: 'Exploring the vibrant street food scene in Korea...'
-    }
+      description: "Exploring the vibrant street food scene in Korea...",
+    },
   ]);
 
   const [likedThreads, setLikedThreads] = useState(new Set());
 
   const handleLike = (threadId) => {
-    setLikedThreads(prev => {
+    setLikedThreads((prev) => {
       const newSet = new Set(prev);
       if (newSet.has(threadId)) {
         newSet.delete(threadId);
@@ -53,7 +60,7 @@ const Thread = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.headerTitle}>Thread</Text>
-      
+
       <View style={styles.tabContainer}>
         <TouchableOpacity style={styles.tabButton}>
           <Text style={styles.tabButtonText}>Popular</Text>
@@ -64,7 +71,7 @@ const Thread = () => {
       </View>
 
       <ScrollView>
-        {threads.map(thread => (
+        {threads.map((thread) => (
           <View key={thread.id} style={styles.threadCard}>
             <Image source={thread.image} style={styles.threadImage} />
             <View style={styles.threadContent}>
@@ -72,31 +79,31 @@ const Thread = () => {
                 <Text style={styles.threadTitle}>{thread.title}</Text>
                 <Text style={styles.threadDate}>{thread.date}</Text>
               </View>
-              
+
               <View style={styles.interactionBar}>
-                <TouchableOpacity 
+                <TouchableOpacity
                   onPress={() => handleLike(thread.id)}
                   style={styles.interactionButton}
                 >
-                  
                   <Text style={styles.interactionText}>
                     {thread.likes + (likedThreads.has(thread.id) ? 1 : 0)}
                   </Text>
                 </TouchableOpacity>
-                
+
                 <View style={styles.interactionButton}>
-                  
                   <Text style={styles.interactionText}>{thread.comments}</Text>
                 </View>
-                
+
                 <View style={styles.interactionButton}>
-                  
                   <Text style={styles.interactionText}>{thread.views}</Text>
                 </View>
               </View>
 
               <View style={styles.authorSection}>
-                <Image source={thread.author.avatar} style={styles.authorAvatar} />
+                <Image
+                  source={thread.author.avatar}
+                  style={styles.authorAvatar}
+                />
                 <View style={styles.authorInfo}>
                   <Text style={styles.authorName}>{thread.author.name}</Text>
                   <Text style={styles.authorEmail}>{thread.author.email}</Text>
@@ -108,6 +115,7 @@ const Thread = () => {
           </View>
         ))}
       </ScrollView>
+      <Footer navigation={navigation} activeScreen={"Thread"} />
     </View>
   );
 };
@@ -115,22 +123,22 @@ const Thread = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
   },
   banner: {
     height: 200,
     marginHorizontal: 16,
     marginTop: 16,
     borderRadius: 12,
-    overflow: 'hidden',
+    overflow: "hidden",
   },
   bannerImage: {
-    width: '100%',
-    height: '100%',
+    width: "100%",
+    height: "100%",
   },
   categories: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    justifyContent: "space-between",
     paddingHorizontal: 16,
     marginTop: 16,
   },
@@ -139,21 +147,21 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginBottom: 12,
   },
   featuredCard: {
     borderRadius: 12,
-    overflow: 'hidden',
-    backgroundColor: '#fff',
-    shadowColor: '#000',
+    overflow: "hidden",
+    backgroundColor: "#fff",
+    shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 3,
   },
   featuredImage: {
-    width: '100%',
+    width: "100%",
     height: 200,
   },
   featuredContent: {
@@ -161,31 +169,31 @@ const styles = StyleSheet.create({
   },
   featuredTitle: {
     fontSize: 16,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginBottom: 8,
   },
   seeDetailButton: {
-    backgroundColor: '#007AFF',
+    backgroundColor: "#007AFF",
     padding: 8,
     borderRadius: 6,
-    alignItems: 'center',
+    alignItems: "center",
   },
   buttonText: {
-    color: '#fff',
-    fontWeight: '600',
+    color: "#fff",
+    fontWeight: "600",
   },
   headerTitle: {
     fontSize: 20,
-    fontWeight: 'bold',
-    textAlign: 'center',
+    fontWeight: "bold",
+    textAlign: "center",
     marginVertical: 16,
   },
   tabContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
+    flexDirection: "row",
+    justifyContent: "center",
     marginBottom: 16,
     borderBottomWidth: 1,
-    borderBottomColor: '#eee',
+    borderBottomColor: "#eee",
   },
   tabButton: {
     paddingHorizontal: 24,
@@ -193,56 +201,56 @@ const styles = StyleSheet.create({
   },
   tabButtonText: {
     fontSize: 16,
-    fontWeight: '500',
+    fontWeight: "500",
   },
   threadCard: {
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
     marginHorizontal: 16,
     marginBottom: 16,
     borderRadius: 12,
-    overflow: 'hidden',
-    shadowColor: '#000',
+    overflow: "hidden",
+    shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 3,
   },
   threadImage: {
-    width: '100%',
+    width: "100%",
     height: 200,
   },
   threadContent: {
     padding: 16,
   },
   threadHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
     marginBottom: 12,
   },
   threadTitle: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   threadDate: {
-    color: '#666',
+    color: "#666",
   },
   interactionBar: {
-    flexDirection: 'row',
+    flexDirection: "row",
     marginBottom: 16,
   },
   interactionButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     marginRight: 16,
   },
   interactionText: {
     marginLeft: 4,
-    color: '#666',
+    color: "#666",
   },
   authorSection: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     marginBottom: 12,
   },
   authorAvatar: {
@@ -256,15 +264,15 @@ const styles = StyleSheet.create({
   },
   authorName: {
     fontSize: 16,
-    fontWeight: '600',
+    fontWeight: "600",
   },
   authorEmail: {
-    color: '#666',
+    color: "#666",
   },
   description: {
-    color: '#444',
+    color: "#444",
     lineHeight: 20,
   },
 });
 
-export default Thread
+export default Thread;
