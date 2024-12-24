@@ -8,6 +8,7 @@ import {
   StyleSheet,
 } from "react-native";
 import Footer from "../Components/Footer";
+import { Ionicons } from "@expo/vector-icons";
 
 const Thread = ({ navigation }) => {
   const [threads] = useState([
@@ -85,17 +86,30 @@ const Thread = ({ navigation }) => {
                   onPress={() => handleLike(thread.id)}
                   style={styles.interactionButton}
                 >
+                  <Ionicons
+                    name={
+                      likedThreads.has(thread.id) ? "heart" : "heart-outline"
+                    }
+                    size={20}
+                    color={likedThreads.has(thread.id) ? "red" : "#666"}
+                  />
                   <Text style={styles.interactionText}>
-                    {thread.likes + (likedThreads.has(thread.id) ? 1 : 0)}
+                    {thread.likes + (likedThreads.has(thread.id) ? 1 : 0)} likes
                   </Text>
                 </TouchableOpacity>
 
                 <View style={styles.interactionButton}>
-                  <Text style={styles.interactionText}>{thread.comments}</Text>
+                  <Ionicons name="chatbubble-outline" size={20} color="#666" />
+                  <Text style={styles.interactionText}>
+                    {thread.comments} comments
+                  </Text>
                 </View>
 
                 <View style={styles.interactionButton}>
-                  <Text style={styles.interactionText}>{thread.views}</Text>
+                  <Ionicons name="eye-outline" size={20} color="#666" />
+                  <Text style={styles.interactionText}>
+                    {thread.views} views
+                  </Text>
                 </View>
               </View>
 

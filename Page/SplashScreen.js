@@ -1,31 +1,33 @@
-import React from 'react';
-import { View, Image, TouchableOpacity, Text, StyleSheet } from 'react-native';
+import React from "react";
+import { View, Image, TouchableOpacity, Text, StyleSheet } from "react-native";
 
 export default function SplashScreen({ navigation }) {
   return (
     <View style={styles.container}>
+      <Image source={require("../assets/Logo.png")} style={styles.logo} />
+      <Text style={styles.title}>Your adventure begins here.</Text>
+      <Text style={styles.title}>Let's travel together!</Text>
       <View style={styles.imageContainer}>
-        <Image 
-          source={require('../assets/Bumi.jpeg')}
+        <Image
+          source={require("../assets/Bumi.jpeg")}
           style={styles.earthImage}
         />
-        <Image 
-          source={require('../assets/OrangInjekBumi.png')}
+        <Image
+          source={require("../assets/OrangInjekBumi.png")}
           style={styles.peopleImage}
         />
       </View>
-      <Text style={styles.title}>Your adventure begins here.</Text>
-      <Text style={styles.subtitle}>Let's travel together!</Text>
+
       <View style={styles.buttonContainer}>
-        <TouchableOpacity 
+        <TouchableOpacity
           style={styles.button}
-          onPress={() => navigation.navigate('SignIn')}
+          onPress={() => navigation.navigate("SignIn")}
         >
           <Text style={styles.buttonText}>Sign In</Text>
         </TouchableOpacity>
-        <TouchableOpacity 
+        <TouchableOpacity
           style={[styles.button, styles.secondaryButton]}
-          onPress={() => navigation.navigate('SignUp')}
+          onPress={() => navigation.navigate("SignUp")}
         >
           <Text style={styles.buttonText}>Sign Up</Text>
         </TouchableOpacity>
@@ -37,50 +39,53 @@ export default function SplashScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
+    backgroundColor: "#fff",
+    alignItems: "center",
   },
   imageContainer: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: '100%',
+    alignItems: "center",
+    justifyContent: "center",
+    width: "100%",
+  },
+  logo: {
+    marginTop: 20,
+    marginBottom: 70,
+    width: 60,
+    height: 60,
   },
   earthImage: {
-    width: '100%',
-    height: '100%',
-    position: 'absolute',
+    width: "180%",
+    height: "180%",
+    top: 200,
+    position: "absolute",
+    zIndex: 0,
   },
   peopleImage: {
-    width: 200,
-    height: 200,
-    marginBottom: 40,
+    width: 300,
+    height: 300,
+    top: 50,
+    position: "absolute",
+    zIndex: 2,
   },
   title: {
     fontSize: 20,
-    fontWeight: '600',
-    textAlign: 'center',
-    marginBottom: 10,
-  },
-  subtitle: {
-    fontSize: 16,
-    color: '#666',
-    textAlign: 'center',
-    marginBottom: 40,
+    fontWeight: "600",
+    textAlign: "center",
   },
   buttonContainer: {
-    width: '100%',
+    width: "50%",
     paddingHorizontal: 20,
-    marginBottom: 40,
+    marginBottom: 100,
     gap: 15,
   },
   button: {
     height: 50,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
     borderRadius: 25,
-    justifyContent: 'center',
-    alignItems: 'center',
-    shadowColor: '#000',
+    justifyContent: "center",
+    alignItems: "center",
+    shadowColor: "#000",
     shadowOffset: {
       width: 0,
       height: 2,
@@ -90,11 +95,11 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   secondaryButton: {
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
   },
   buttonText: {
     fontSize: 16,
-    fontWeight: '600',
-    color: '#003580',
-  }
+    fontWeight: "600",
+    color: "#003580",
+  },
 });

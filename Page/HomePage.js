@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -10,28 +10,48 @@ import {
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import Footer from "../Components/Footer";
+import { LinearGradient } from "expo-linear-gradient";
+import DropDownPicker from "react-native-dropdown-picker";
 
 export default function Homepage({ navigation }) {
+
+  const [open, setOpen] = useState(false);
+  const [value, setValue] = useState('semarang');
+  const [items, setItems] = useState([
+    {label: 'Bogor', value: 'bogor'},
+    {label: 'Jakarta', value: 'jakarta'},
+    {label: 'Bandung', value: 'bandung'},
+    {label: 'Semarang', value: 'semarang'},
+    {label: 'Surabaya', value: 'surabaya'},
+    {label: 'Kendari', value: 'kendari'}
+  ]);
+
   return (
     <View style={styles.container}>
-      <View style={styles.searchContainer}>
-        <Ionicons
-          name="search"
-          size={20}
-          color="#666"
-          style={styles.searchIcon}
-        />
-        <TextInput
-          style={styles.searchInput}
-          placeholder="Search"
-          placeholderTextColor="#666"
-        />
-        <TouchableOpacity>
-          <Image
-            source={require("../assets/Profile.png")}
-            style={styles.profileImage}
+      <LinearGradient
+        colors={["rgba(72, 202, 228, 1)", "transparent"]}
+        style={styles.background}
+      />
+
+      <View style={styles.searchbox}>
+        <View style={styles.searchContainer}>
+          <TextInput
+            style={styles.searchInput}
+            placeholder="Search"
+            placeholderTextColor="gray"
           />
-        </TouchableOpacity>
+
+          <Ionicons
+            name="search"
+            size={20}
+            color="gray"
+            style={styles.searchIcon}
+          />
+        </View>
+        <View style={styles.notificationIcon}>
+        <Ionicons name="notifications" size={20} color="#0078B7" />
+        </View>
+          
       </View>
 
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -41,8 +61,18 @@ export default function Homepage({ navigation }) {
         />
 
         <View style={styles.locationContainer}>
-          <Text style={styles.locationText}>Semarang</Text>
-          <Ionicons name="chevron-down" size={20} color="#000" />
+            <DropDownPicker
+            open={open}
+            value={value}
+            items={items}
+            setOpen={setOpen}
+            setValue={setValue}
+            setItems={setItems}
+            placeholder={'Choose a fruit.'}
+            style={{width: "360",borderColor: "white"}}
+          />
+          {/* <Text style={styles.locationText}>Semarang</Text>
+          <Ionicons name="chevron-down" size={20} color="#000" /> */}
         </View>
 
         <ScrollView
@@ -113,22 +143,48 @@ export default function Homepage({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "white",
+    paddingHorizontal: 12,
   },
+  background: {
+    position: "absolute",
+    left: 0,
+    right: 0,
+    top: 0,
+    height: 500,
+  },
+  searchbox: {
+      flexDirection: "row",
+      alignItems: "center",
+      marginTop: 40,
+  },  
   searchContainer: {
     flexDirection: "row",
     alignItems: "center",
-    paddingHorizontal: 20,
-    paddingVertical: 10,
+    paddingHorizontal: 10,
     backgroundColor: "#f5f5f5",
-    marginHorizontal: 20,
-    marginTop: 20,
-    borderRadius: 10,
+    marginLeft: 20,
+    marginRight: 10,
+    borderRadius: 24,
+    width: "80%",
   },
   searchInput: {
     flex: 1,
-    marginLeft: 10,
     fontSize: 16,
+  },
+  notification : {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  notificationIcon : {
+    flexDirection: "row",
+    height: 40,
+    width: 40,
+    borderRadius: 40/2,
+    backgroundColor: "#f5f5f5",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   profileImage: {
     width: 40,
@@ -136,10 +192,13 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   promoImage: {
-    width: "100%",
-    height: 150,
-    resizeMode: "cover",
+    width: "95%",
+    height: "10%",
     marginTop: 20,
+    marginHorizontal: 16,
+    borderRadius: 16,
+    padding: 120,
+    overflow: "hidden",
   },
   locationContainer: {
     flexDirection: "row",
@@ -205,7 +264,7 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
   seeDetailButton: {
-    backgroundColor: "#003580",
+    backgroundColor: "#00B4D7",
     padding: 10,
     borderRadius: 8,
     alignItems: "center",
