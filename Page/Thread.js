@@ -198,11 +198,10 @@ const styles = StyleSheet.create({
     fontWeight: "600",
   },
   headerTitle: {
-    fontSize: 20,
+    fontSize: 24,
     fontWeight: "bold",
     textAlign: "center",
     marginVertical: 16,
-    margintop: 40
   },
   tabContainer: {
     flexDirection: "row",
