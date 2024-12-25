@@ -10,9 +10,9 @@ export default function Footer({ navigation, activeScreen }) {
         onPress={() => navigation.navigate("HomePage")}
       >
         <Ionicons
-          name="home-outline"
+          name="home"
           size={24}
-          color={activeScreen === "HomePage" ? "#00B4D8" : "#666"}
+          color={activeScreen === "HomePage" ? "#00B4D8" : "#C0C0C0"}
         />
         <Text
           style={[
@@ -28,9 +28,9 @@ export default function Footer({ navigation, activeScreen }) {
         onPress={() => navigation.navigate("Community")}
       >
         <Ionicons
-          name="people-outline"
+          name="people"
           size={24}
-          color={activeScreen === "Community" ? "#00B4D8" : "#666"}
+          color={activeScreen === "Community" ? "#00B4D8" : "#C0C0C0"}
         />
         <Text
           style={[
@@ -42,13 +42,13 @@ export default function Footer({ navigation, activeScreen }) {
         </Text>
       </TouchableOpacity>
       <TouchableOpacity
-        style={styles.navItem}
-        onPress={() => navigation.navigate("Trip")}
+        style={styles.navItemTrip}
+        onPress={() => navigation.navigate("ListTrip")}
       >
         <Ionicons
-          name="location-outline"
-          size={24}
-          color={activeScreen === "Trip" ? "#00B4D8" : "#666"}
+          name="location"
+          size={50}
+          color="red"
         />
         <Text
           style={[
@@ -64,9 +64,9 @@ export default function Footer({ navigation, activeScreen }) {
         onPress={() => navigation.navigate("Thread")}
       >
         <Ionicons
-          name="play-outline"
+          name="play"
           size={24}
-          color={activeScreen === "Thread" ? "#00B4D8" : "#666"}
+          color={activeScreen === "Thread" ? "#00B4D8" : "#C0C0C0"}
         />
         <Text
           style={[
@@ -82,9 +82,9 @@ export default function Footer({ navigation, activeScreen }) {
         onPress={() => navigation.navigate("Profile")}
       >
         <Ionicons
-          name="person-outline"
+          name="person"
           size={24}
-          color={activeScreen === "Profile" ? "#00B4D8" : "#666"}
+          color={activeScreen === "Profile" ? "#00B4D8" : "#C0C0C0"}
         />
         <Text
           style={[
@@ -104,6 +104,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     padding: 10,
+    height: 70,
     backgroundColor: "#fff",
     borderTopWidth: 1,
     borderTopColor: "#eee",
@@ -114,8 +115,24 @@ const styles = StyleSheet.create({
   navText: {
     color: "#666",
     fontSize: 12,
+    fontWeight: "semibold",
+    marginBottom: 2,
   },
   activeNavText: {
     color: "#00B4D8",
+  },
+  navItemTrip: {
+    alignItems: "center",
+    position: "relative",
+    top: -25,
+    marginBottom: -10,
+    height: 80,
+    width: 80,
+    borderRadius: 100/2,
+    borderWidth: 2,
+    borderColor: "white",
+    backgroundColor: "#CAF1F8",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
