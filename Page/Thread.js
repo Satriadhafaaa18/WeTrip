@@ -10,7 +10,7 @@ import {
 import Footer from "../Components/Footer";
 import { Ionicons } from "@expo/vector-icons";
 
-const Thread = ({ navigation }) => {
+export default function Thread ({ navigation }) {
   const [threads] = useState([
     {
       id: 1,
@@ -63,8 +63,8 @@ const Thread = ({ navigation }) => {
       <Text style={styles.headerTitle}>Thread</Text>
 
       <View style={styles.tabContainer}>
-        <TouchableOpacity style={styles.tabButton}>
-          <Text style={styles.tabButtonText}>Popular</Text>
+        <TouchableOpacity style={[styles.tabButton, styles.tabButtonActive]}>
+          <Text style={[styles.tabButtonText, styles.tabButtonTextActive]}>Popular</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.tabButton}>
           <Text style={styles.tabButtonText}>Latest</Text>
@@ -132,12 +132,13 @@ const Thread = ({ navigation }) => {
       <Footer navigation={navigation} activeScreen={"Thread"} />
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
+    paddingTop: 40,
   },
   banner: {
     height: 200,
@@ -197,14 +198,14 @@ const styles = StyleSheet.create({
     fontWeight: "600",
   },
   headerTitle: {
-    fontSize: 20,
+    fontSize: 24,
     fontWeight: "bold",
     textAlign: "center",
     marginVertical: 16,
   },
   tabContainer: {
     flexDirection: "row",
-    justifyContent: "center",
+    justifyContent: "space-around",
     marginBottom: 16,
     borderBottomWidth: 1,
     borderBottomColor: "#eee",
@@ -215,8 +216,16 @@ const styles = StyleSheet.create({
   },
   tabButtonText: {
     fontSize: 16,
-    fontWeight: "500",
+    color: "#1F79CC",
+    fontWeight: "semibold"
   },
+  tabButtonTextActive: {
+    fontWeight: "bold"
+  },
+  tabButtonActive: {
+    borderBottomWidth: 2,
+    borderBottomColor: "#1F79CC",
+  },  
   threadCard: {
     backgroundColor: "#fff",
     marginHorizontal: 16,
@@ -288,5 +297,3 @@ const styles = StyleSheet.create({
     lineHeight: 20,
   },
 });
-
-export default Thread;

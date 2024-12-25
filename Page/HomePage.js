@@ -1,30 +1,29 @@
 import React, { useState } from "react";
-import {
-  View,
-  Text,
-  Image,
-  TextInput,
-  ScrollView,
-  TouchableOpacity,
-  StyleSheet,
-} from "react-native";
+import {View,Text,Image,TextInput,ScrollView,TouchableOpacity,StyleSheet,} from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import Footer from "../Components/Footer";
 import { LinearGradient } from "expo-linear-gradient";
 import DropDownPicker from "react-native-dropdown-picker";
+import { Dropdown } from "react-native-element-dropdown";
 
 export default function Homepage({ navigation }) {
-
   const [open, setOpen] = useState(false);
-  const [value, setValue] = useState('semarang');
-  const [items, setItems] = useState([
-    {label: 'Bogor', value: 'bogor'},
-    {label: 'Jakarta', value: 'jakarta'},
-    {label: 'Bandung', value: 'bandung'},
-    {label: 'Semarang', value: 'semarang'},
-    {label: 'Surabaya', value: 'surabaya'},
-    {label: 'Kendari', value: 'kendari'}
-  ]);
+  const [value, setValue] = useState("semarang");
+  const items = [
+    { label: "Bogor", value: "bogor" },
+    { label: "Jakarta", value: "jakarta" },
+    { label: "Bandung", value: "bandung" },
+    { label: "Semarang", value: "semarang" },
+    { label: "Surabaya", value: "surabaya" },
+    { label: "Kendari", value: "kendari" },
+  ];
+
+  const categories = [
+    { assets: require("../assets/Gunung.jpeg"), name: "Gunung" },
+    { assets: require("../assets/Gedung.jpeg"), name: "Domestic" },
+    { assets: require("../assets/International.jpeg"), name: "International" },
+    { assets: require("../assets/Maeman.jpeg"), name: "Culinary" },
+  ];
 
   return (
     <View style={styles.container}>
@@ -49,30 +48,33 @@ export default function Homepage({ navigation }) {
           />
         </View>
         <View style={styles.notificationIcon}>
-        <Ionicons name="notifications" size={20} color="#0078B7" />
+          <Ionicons name="notifications" size={20} color="#0078B7" />
         </View>
-          
       </View>
 
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <Image
-          source={require("../assets/PromoLiburan.jpeg")}
-          style={styles.promoImage}
-        />
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        style={styles.scrollContainer}
+      >
+        <View style={styles.promoContainer}>
+          <Image
+            source={require("../assets/PromoLiburan.jpeg")}
+            style={styles.promoImage}
+          />
+        </View>
 
         <View style={styles.locationContainer}>
-            <DropDownPicker
-            open={open}
+          <Dropdown
+            style={[styles.dropdown]}
+            data={items}
+            labelField="label"
+            valueField="value"
+            placeholder="Pilih kota"
             value={value}
-            items={items}
-            setOpen={setOpen}
-            setValue={setValue}
-            setItems={setItems}
-            placeholder={'Choose a fruit.'}
-            style={{width: "360",borderColor: "white"}}
+            onChange={(item) => {
+              setValue(item.value);
+            }}
           />
-          {/* <Text style={styles.locationText}>Semarang</Text>
-          <Ionicons name="chevron-down" size={20} color="#000" /> */}
         </View>
 
         <ScrollView
@@ -80,38 +82,21 @@ export default function Homepage({ navigation }) {
           showsHorizontalScrollIndicator={false}
           style={styles.categoryScroll}
         >
-          <TouchableOpacity style={styles.categoryCard}>
-            <Image
-              source={require("../assets/Gunung.jpeg")}
-              style={styles.categoryImage}
-            />
-            <Text style={styles.categoryText}>Hiking</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.categoryCard}>
-            <Image
-              source={require("../assets/Gedung.jpeg")}
-              style={styles.categoryImage}
-            />
-            <Text style={styles.categoryText}>Domestic</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.categoryCard}
-            onPress={() => navigation.navigate("ListTrip")}
-          >
-            <Image
-              source={require("../assets/International.jpeg")}
-              style={styles.categoryImage}
-            />
-            <Text style={styles.categoryText}>International</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.categoryCard}>
-            <Image
-              source={require("../assets/Maeman.jpeg")}
-              style={styles.categoryImage}
-            />
-            <Text style={styles.categoryText}>Culinary</Text>
-          </TouchableOpacity>
+          {categories.map((item, index) => {
+            return (
+              <TouchableOpacity style={styles.categoryCard} key={index}>
+                <Image source={item.assets} style={styles.categoryImage} />
+                <View style={styles.textContainer}>
+                  <Text style={styles.categoryText}>{item.name}</Text>
+                </View>
+              </TouchableOpacity>
+            );
+          })}
         </ScrollView>
+
+        <View style={styles.subHeader}>
+          <Text style={styles.subHeaderText}>You might like</Text>
+        </View>
 
         <View style={styles.tripCard}>
           <Image
@@ -144,7 +129,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "white",
-    paddingHorizontal: 12,
   },
   background: {
     position: "absolute",
@@ -154,57 +138,59 @@ const styles = StyleSheet.create({
     height: 500,
   },
   searchbox: {
-      flexDirection: "row",
-      alignItems: "center",
-      marginTop: 40,
-  },  
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginTop: 40,
+    marginHorizontal: 16,
+  },
   searchContainer: {
+    width: "86%",
     flexDirection: "row",
     alignItems: "center",
     paddingHorizontal: 10,
     backgroundColor: "#f5f5f5",
-    marginLeft: 20,
-    marginRight: 10,
     borderRadius: 24,
-    width: "80%",
   },
   searchInput: {
     flex: 1,
     fontSize: 16,
   },
-  notification : {
+  notification: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
-  notificationIcon : {
+  notificationIcon: {
     flexDirection: "row",
     height: 40,
     width: 40,
-    borderRadius: 40/2,
+    borderRadius: 40 / 2,
     backgroundColor: "#f5f5f5",
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
   profileImage: {
     width: 40,
     height: 40,
     borderRadius: 20,
   },
-  promoImage: {
-    width: "95%",
-    height: "10%",
+  promoContainer: {
     marginTop: 20,
     marginHorizontal: 16,
+    height: 175,
     borderRadius: 16,
-    padding: 120,
     overflow: "hidden",
+    backgroundColor: "red",
+  },
+  promoImage: {
+    width: "100%",
+    height: "100%",
+    resizeMode: "cover",
   },
   locationContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    paddingHorizontal: 20,
     marginTop: 20,
+    marginHorizontal: 16,
   },
   locationText: {
     fontSize: 18,
@@ -212,24 +198,48 @@ const styles = StyleSheet.create({
     marginRight: 5,
   },
   categoryScroll: {
-    paddingHorizontal: 20,
+    marginHorizontal: 16,
     marginTop: 20,
+    // backgroundColor: "red"
   },
   categoryCard: {
-    marginRight: 15,
+    marginRight: 20,
+    height: 105,
     alignItems: "center",
   },
   categoryImage: {
     width: 80,
     height: 80,
     borderRadius: 40,
+    borderColor: "#00B4D7",
+    borderWidth: 0.5,
+    resizeMode: "cover",
+  },
+  textContainer: {
+    position: "absolute",
+    top: 60,
+    height: 30,
+    width: 80,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#00B4D7",
+    borderRadius: 60 / 2,
   },
   categoryText: {
-    marginTop: 5,
-    fontSize: 14,
+    fontSize: 12,
+    color: "white",
+  },
+  subHeader: {
+    marginHorizontal: 16,
+  },
+  subHeaderText: {
+    fontSize: 20,
+    fontWeight: "bold"
   },
   tripCard: {
-    margin: 20,
+    marginVertical: 14,
+    marginHorizontal: 16,
     backgroundColor: "#fff",
     borderRadius: 15,
     shadowColor: "#000",
@@ -243,7 +253,7 @@ const styles = StyleSheet.create({
   },
   tripImage: {
     width: "100%",
-    height: 200,
+    height: 100,
     borderTopLeftRadius: 15,
     borderTopRightRadius: 15,
   },
@@ -272,5 +282,20 @@ const styles = StyleSheet.create({
   seeDetailText: {
     color: "#fff",
     fontWeight: "bold",
+  },
+  dropdown: {
+    height: 56,
+    borderRadius: 24,
+    paddingHorizontal: 18,
+    backgroundColor: "white",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+
+    elevation: 2,
   },
 });

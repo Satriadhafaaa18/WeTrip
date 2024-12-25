@@ -15,6 +15,10 @@ import BookingSummary from './Page/BookingSummary';
 import Payment from './Page/Payment';
 import Invoice from './Page/Invoice';
 import InvoiceDetail from './Page/InvoiceDetail';
+import Profile from './Page/Profile';
+import EditProfile from './Page/EditProfile';
+import Trip from './Page/Trip';
+import Review from './Page/Review';
 
 const Stack = createNativeStackNavigator();
 
@@ -36,6 +40,10 @@ export default function App() {
         <Stack.Screen name="Payment" component={Payment} />
         <Stack.Screen name="Invoice" component={Invoice} />
         <Stack.Screen name="InvoiceDetail" component={InvoiceDetail} />
+        <Stack.Screen name="Profile" component={Profile} />
+        <Stack.Screen name="EditProfile" component={EditProfile} />
+        <Stack.Screen name="Trip" component={Trip} />
+        <Stack.Screen name="Review" component={Review} />
       </Stack.Navigator>
     </NavigationContainer>
   );}
