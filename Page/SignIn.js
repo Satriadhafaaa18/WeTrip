@@ -1,42 +1,68 @@
-import React from 'react';
-import { View, TextInput, TouchableOpacity, Text, Image, StyleSheet } from 'react-native';
+import React from "react";
+import {
+  View,
+  TextInput,
+  TouchableOpacity,
+  Text,
+  Image,
+  StyleSheet,
+} from "react-native";
 
 export default function SignIn({ navigation }) {
   return (
     <View style={styles.container}>
+      <Image
+        source={require("../assets/Background.png")}
+        style={styles.background}
+      />
       <Text style={styles.title}>Sign In</Text>
       <View style={styles.formContainer}>
-        <TextInput 
+        <TextInput
           style={styles.input}
           placeholder="Email"
           keyboardType="email-address"
         />
-        <TextInput 
+        <TextInput
           style={styles.input}
           placeholder="Password"
           secureTextEntry
         />
-        <TouchableOpacity 
+        <TouchableOpacity
           style={styles.button}
-          onPress={() => navigation.navigate('HomePage')}
+          onPress={() => navigation.navigate("HomePage")}
         >
           <Text style={styles.buttonText}>Sign In</Text>
         </TouchableOpacity>
+
         <View style={styles.signUpContainer}>
-          <Text>Don't have an account? </Text>
-          <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
-            <Text style={styles.signUpText}>Sign Up</Text>
-          </TouchableOpacity>
+          <Text style={{color: "white"}}>Or continue with</Text>
         </View>
+
         <View style={styles.socialContainer}>
           <TouchableOpacity style={styles.socialButton}>
-            <Image source={require('../assets/google.png')} style={styles.socialIcon} />
+            <Image
+              source={require("../assets/google.png")}
+              style={styles.socialIcon}
+            />
           </TouchableOpacity>
           <TouchableOpacity style={styles.socialButton}>
-            <Image source={require('../assets/facebook.png')} style={styles.socialIcon} />
+            <Image
+              source={require("../assets/facebook.png")}
+              style={styles.socialIcon}
+            />
           </TouchableOpacity>
           <TouchableOpacity style={styles.socialButton}>
-            <Image source={require('../assets/apple.png')} style={styles.socialIcon} />
+            <Image
+              source={require("../assets/apple.png")}
+              style={styles.socialIcon}
+            />
+          </TouchableOpacity>
+        </View>
+
+        <View style={styles.signUpContainer}>
+          <Text style={{color: "white"}}>Don't have an account? </Text>
+          <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
+            <Text style={{textDecorationLine: "underline"}}>Sign Up</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -45,63 +71,68 @@ export default function SignIn({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+  },
+  background:{
+    position: "absolute",
+    zIndex: 0
+  },
+  formContainer: {
+    marginTop:350,
+    paddingHorizontal: 20,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: "600",
+    marginTop: 60,
+    marginLeft: 20,
+  },
+  input: {
+    height: 50,
+    backgroundColor: "#fff",
+    borderRadius: 24,
+    paddingHorizontal: 25,
+    marginBottom: 15,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
     },
-    formContainer: {
-      marginTop: 20,
-      paddingHorizontal: 20,
-    },
-    title: {
-      fontSize: 24,
-      fontWeight: '600',
-      marginTop: 60,
-      marginLeft: 20,
-    },
-    input: {
-      height: 50,
-      backgroundColor: '#fff',
-      borderRadius: 10,
-      paddingHorizontal: 15,
-      marginBottom: 15,
-      shadowColor: '#000',
-      shadowOffset: {
-        width: 0,
-        height: 2,
-      },
-      shadowOpacity: 0.1,
-      shadowRadius: 3,
-      elevation: 3,
-    },
-    button: {
-      backgroundColor: '#003580',
-      height: 50,
-      borderRadius: 10,
-      justifyContent: 'center',
-      alignItems: 'center',
-      marginVertical: 20,
-    },
-    buttonText: {
-      color: '#fff',
-      fontSize: 16,
-      fontWeight: '600',
-    },
-    signUpContainer: {
-      flexDirection: 'row',
-      justifyContent: 'center',
-      marginTop: 'auto',
-      marginBottom: 20,
-    },
-    socialContainer: {
-      flexDirection: 'row',
-      justifyContent: 'center',
-      marginTop: 'auto',
-      marginBottom: 40,
-      gap: 15,
-    },
-    socialIcon: {
-      width: 24,
-      height: 24,
-    }
-  });
+    shadowOpacity: 0.1,
+    shadowRadius: 3,
+    elevation: 3,
+  },
+  button: {
+    backgroundColor: "#003580",
+    height: 50,
+    borderRadius: 24,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 10,
+    marginBottom: 30,
+  },
+  buttonText: {
+    color: "#fff",
+    fontSize: 16,
+    fontWeight: "600",
+  },
+  signUpContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    marginTop: "auto",
+    marginBottom: 20,
+  },
+  socialContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    marginTop: "auto",
+    marginBottom: 20,
+    gap: 15,
+  },
+  socialIcon: {
+    width: 24,
+    height: 24,
+  },
+});

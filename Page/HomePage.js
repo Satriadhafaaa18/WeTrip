@@ -1,5 +1,13 @@
 import React, { useState } from "react";
-import {View,Text,Image,TextInput,ScrollView,TouchableOpacity,StyleSheet,} from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  TextInput,
+  ScrollView,
+  TouchableOpacity,
+  StyleSheet,
+} from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import Footer from "../Components/Footer";
 import { LinearGradient } from "expo-linear-gradient";
@@ -84,7 +92,15 @@ export default function Homepage({ navigation }) {
         >
           {categories.map((item, index) => {
             return (
-              <TouchableOpacity style={styles.categoryCard} key={index}>
+              <TouchableOpacity
+                style={styles.categoryCard}
+                key={index}
+                onPress={
+                  item.name == "International"
+                    ? () => navigation.navigate("ListTrip")
+                    : null
+                }
+              >
                 <Image source={item.assets} style={styles.categoryImage} />
                 <View style={styles.textContainer}>
                   <Text style={styles.categoryText}>{item.name}</Text>
@@ -107,8 +123,9 @@ export default function Homepage({ navigation }) {
             <Text style={styles.tripTitle}>Japan Trip - Fuji Mountain</Text>
             <Text style={styles.tripDate}>14 August - 17 August 2024</Text>
             <Text style={styles.tripDescription}>
-              Gunung Fuji, sebagai tempat suci yang ikonis di Jepang, telah
-              menjadi pusat budaya dalam...
+              Gunung Fuji, gunung tertinggi dan paling ikonik di Jepang, siap
+              menyambut Anda dalam petualangan yang penuh dengan keindahan alam,
+              pemandangan spektakuler, dan pengalaman mendalam.......
             </Text>
             <TouchableOpacity
               style={styles.seeDetailButton}
@@ -235,7 +252,7 @@ const styles = StyleSheet.create({
   },
   subHeaderText: {
     fontSize: 20,
-    fontWeight: "bold"
+    fontWeight: "bold",
   },
   tripCard: {
     marginVertical: 14,
@@ -253,7 +270,7 @@ const styles = StyleSheet.create({
   },
   tripImage: {
     width: "100%",
-    height: 100,
+    height: 200,
     borderTopLeftRadius: 15,
     borderTopRightRadius: 15,
   },
@@ -266,7 +283,8 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   tripDate: {
-    color: "#666",
+    color: "#1F79CC",
+    fontWeight: "bold",
     marginBottom: 10,
   },
   tripDescription: {

@@ -173,15 +173,15 @@ const styles = StyleSheet.create({
     borderRadius: 24,
     borderWidth: 0.5,
     borderColor: "gray",
-    shadowColor: "#000",
+    shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 5,
+      height: 2,
     },
-    shadowOpacity: 0.34,
-    shadowRadius: 6.27,
-
-    elevation: 10,
+    shadowOpacity: 0.5,
+    shadowRadius: 8,
+    // Android shadow
+    elevation: 4,
   },
   searchInput: {
     flex: 1,
