@@ -15,7 +15,7 @@ export const InvoiceDetail = () => {
             style={styles.backButton}
           >
             <Image 
-              source={require('./assets/PanahKiri.png')} 
+              source={require('../assets/PanahKiri.png')} 
               style={styles.backIcon}
             />
           </TouchableOpacity>
@@ -59,7 +59,7 @@ export const InvoiceDetail = () => {
           <View style={styles.flightCard}>
             <View style={styles.airlineHeader}>
               <Image 
-                source={require('./assets/JapanAirline.png')} 
+                source={require('../assets/JapanAirline.png')} 
                 style={styles.airlineIcon}
               />
               <Text style={styles.airlineName}>Japan Airlines</Text>
@@ -75,7 +75,7 @@ export const InvoiceDetail = () => {
           <View style={styles.flightCard}>
             <View style={styles.airlineHeader}>
               <Image 
-                source={require('./assets/AirAsia.png')} 
+                source={require('../assets/AirAsia.png')} 
                 style={styles.airlineIcon}
               />
               <Text style={styles.airlineName}>AirAsia Indonesia + HK Express</Text>

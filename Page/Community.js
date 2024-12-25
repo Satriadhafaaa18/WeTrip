@@ -97,8 +97,6 @@ export default function Community({navigation}) {
           </View>
         </View>
 
-        {/* Similar comment cards for other users */}
-        {/* You can repeat the above comment card structure with different data */}
       </ScrollView>
 
       <Footer navigation={navigation} activeScreen={"Community"}/>
