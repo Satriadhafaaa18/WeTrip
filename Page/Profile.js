@@ -192,7 +192,7 @@ const styles = StyleSheet.create({
     height: 250,
   },
   tripCard: {
-    width: 280,
+    width: 200,
     height: 240,
     marginRight: 15,
     backgroundColor: '#fff',
@@ -225,19 +225,19 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   tripTitle: {
-    fontSize: 16,
+    fontSize: 12,
     fontWeight: 'bold',
     color: '#000',
     marginBottom: 6,
     lineHeight: 22,
   },
   tripDate: {
-    fontSize: 13,
+    fontSize: 10,
     color: '#0085CC',
     marginBottom: 6,
   },
   tripDescription: {
-    fontSize: 13,
+    fontSize: 10,
     color: '#666',
     lineHeight: 18,
   },

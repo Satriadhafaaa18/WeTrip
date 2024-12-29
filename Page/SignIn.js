@@ -103,19 +103,16 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
   },
   formContainer: {
-    marginTop: 350,
+    marginTop: 270,
     paddingHorizontal: 20,
   },
   title: {
-<<<<<<< HEAD
     fontSize: 30,
     fontWeight: "bold",
     textAlign: "center",
     marginVertical: 50,
-=======
     fontSize: 36,
     textAlign: "center",
->>>>>>> d8774be602c23a9b07c6ebdb802e40324aa35c77
   },
   input: {
     height: 50,

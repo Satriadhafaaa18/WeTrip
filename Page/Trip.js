@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
-import {View,Text,Image,TouchableOpacity,StyleSheet,SafeAreaView,} from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  StyleSheet,
+  ScrollView,
+} from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import Footer from "../Components/Footer";
-
-
 
 const TripCard = ({ image, title, status, onReviewPress }) => {
   return (
@@ -14,10 +19,12 @@ const TripCard = ({ image, title, status, onReviewPress }) => {
         <View style={styles.cardFooter}>
           <View style={styles.statusContainer}>
             <Text style={styles.statusLabel}>Status: </Text>
-            <Text style={[
-              styles.statusValue,
-              { color: status === 'Active' ? '#2ED30D' : '#007AFF' } 
-            ]}>
+            <Text
+              style={[
+                styles.statusValue,
+                { color: status === "Active" ? "#2ED30D" : "#007AFF" },
+              ]}
+            >
               {status}
             </Text>
           </View>
@@ -25,8 +32,8 @@ const TripCard = ({ image, title, status, onReviewPress }) => {
             <TouchableOpacity style={styles.button}>
               <Text style={styles.buttonText}>Trip Detail</Text>
             </TouchableOpacity>
-            {status === 'Completed' && (
-              <TouchableOpacity 
+            {status === "Completed" && (
+              <TouchableOpacity
                 style={[styles.button, styles.reviewButton]}
                 onPress={onReviewPress}
               >
@@ -37,116 +44,121 @@ const TripCard = ({ image, title, status, onReviewPress }) => {
         </View>
       </View>
     </View>
-    
   );
 };
 
-
 const Trip = () => {
   const navigation = useNavigation();
-  const [activeTab, setActiveTab] = useState('active');
+  const [activeTab, setActiveTab] = useState("active");
 
   const trips = {
     active: [
       {
         id: 1,
-        title: 'Japan Trip : Fuji Mountain',
-        image: require('../assets/JepangTrip.png'),
-        status: 'Active'
-      }
+        title: "Japan Trip : Fuji Mountain",
+        image: require("../assets/JepangTrip.png"),
+        status: "Active",
+      },
     ],
     completed: [
       {
         id: 2,
-        title: 'London Trip : The Big Beng',
-        image: require('../assets/LondonTrip.png'),
-        status: 'Completed'
-      }
-    ]
+        title: "London Trip : The Big Beng",
+        image: require("../assets/LondonTrip.png"),
+        status: "Completed",
+      },
+    ],
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <Text style={styles.header}>History</Text>
-      
+
       <View style={styles.tabContainer}>
-        <TouchableOpacity 
-          style={[styles.tab, activeTab === 'active' && styles.activeTab]}
-          onPress={() => setActiveTab('active')}
+        <TouchableOpacity
+          style={[styles.tab, activeTab === "active" && styles.activeTab]}
+          onPress={() => setActiveTab("active")}
         >
-          <Text style={[
-            styles.tabText,
-            activeTab === 'active' && styles.activeTabText
-          ]}>
+          <Text
+            style={[
+              styles.tabText,
+              activeTab === "active" && styles.activeTabText,
+            ]}
+          >
             Active
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity 
-          style={[styles.tab, activeTab === 'completed' && styles.activeTab]}
-          onPress={() => setActiveTab('completed')}
+        <TouchableOpacity
+          style={[styles.tab, activeTab === "completed" && styles.activeTab]}
+          onPress={() => setActiveTab("completed")}
         >
-          <Text style={[
-            styles.tabText,
-            activeTab === 'completed' && styles.activeTabText
-          ]}>
+          <Text
+            style={[
+              styles.tabText,
+              activeTab === "completed" && styles.activeTabText,
+            ]}
+          >
             Completed
           </Text>
         </TouchableOpacity>
       </View>
 
-      {(activeTab === 'active' ? trips.active : trips.completed).map(trip => (
-        <TripCard
-          key={trip.id}
-          {...trip}
-          onReviewPress={() => navigation.navigate('Review', { trip })}
-        />
-      ))}
+      <ScrollView vertical showsHorizontalScrollIndicator={false}>
+        {(activeTab === "active" ? trips.active : trips.completed).map(
+          (trip) => (
+            <TripCard
+              key={trip.id}
+              {...trip}
+              onReviewPress={() => navigation.navigate("Review", { trip })}
+            />
+          )
+        )}
+      </ScrollView>
       <Footer navigation={navigation} activeScreen={"Trip"} />
-      </SafeAreaView>
+    </View>
   );
 };
 
-
-
-
-
 const styles = StyleSheet.create({
-tabContainer: {
-    flexDirection: 'row',
+  container: {
+    flex: 1,
+    flexDirection: "column",
+  },
+  tabContainer: {
+    flexDirection: "row",
     paddingHorizontal: 20,
     marginBottom: 20,
     top: 20,
   },
   header: {
     fontSize: 20,
-      fontWeight: 'bold',
-      textAlign: 'center',
-      marginVertical: 25,
-      top: 20,
+    fontWeight: "bold",
+    textAlign: "center",
+    marginVertical: 25,
+    top: 20,
   },
   tab: {
     flex: 1,
     paddingVertical: 10,
-    alignItems: 'center',
+    alignItems: "center",
   },
   activeTab: {
     borderBottomWidth: 2,
-    borderBottomColor: '#007AFF',
+    borderBottomColor: "#007AFF",
   },
   tabText: {
     fontSize: 18,
-    color: '#666',
+    color: "#666",
   },
   activeTabText: {
-    color: '#007AFF',
-    fontWeight: '500',
+    color: "#007AFF",
+    fontWeight: "500",
   },
   card: {
     marginHorizontal: 20,
-    marginBottom: 20,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
     borderRadius: 15,
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 8,
@@ -154,7 +166,7 @@ tabContainer: {
     top: 25,
   },
   cardImage: {
-    width: '100%',
+    width: "100%",
     height: 100,
     borderTopLeftRadius: 15,
     borderTopRightRadius: 15,
@@ -164,40 +176,40 @@ tabContainer: {
   },
   cardTitle: {
     fontSize: 18,
-    fontWeight: '600',
+    fontWeight: "600",
     marginBottom: 10,
   },
   cardFooter: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
   statusContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
   },
   statusLabel: {
-    color: '#666',
+    color: "#666",
   },
   statusValue: {
-    fontWeight: '500',
+    fontWeight: "500",
   },
   buttonContainer: {
-    flexDirection: 'row',
+    flexDirection: "row",
   },
   button: {
-    backgroundColor: '#F5F5F5',
+    backgroundColor: "#F5F5F5",
     paddingHorizontal: 15,
     paddingVertical: 8,
     borderRadius: 20,
     marginLeft: 10,
   },
   reviewButton: {
-    backgroundColor: '#007AFF',
+    backgroundColor: "#007AFF",
   },
   buttonText: {
-    color: '#000',
+    color: "#000",
   },
 });
 
-export default Trip ;
+export default Trip;

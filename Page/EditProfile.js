@@ -32,29 +32,29 @@ const EditProfile = () => {
             <Text style={styles.inputLabel}>Name</Text>
             <TextInput 
               style={styles.input}
-              placeholder="Name"
+              // placeholder="Name"
             />
             <Text style={styles.inputLabel}>Username</Text>
             <TextInput 
               style={styles.input}
-              placeholder="Username"
+              // placeholder="Username"
             />
             <Text style={styles.inputLabel}>Email</Text>
             <TextInput 
               style={styles.input}
-              placeholder="Email"
+              // placeholder="Email"
               keyboardType="email-address"
             />
             <Text style={styles.inputLabel}>Phone number</Text>
             <TextInput 
               style={styles.input}
-              placeholder="Phone Number"
+              // placeholder="Phone Number"
               keyboardType="phone-pad"
             />
             <Text style={styles.inputLabel}>Birth of date</Text>
             <TextInput 
               style={styles.input}
-              placeholder="Birth of Date"
+              // placeholder="Birth of Date"
               keyboardType="DD/MM/YYYY"
             />
           </View>
