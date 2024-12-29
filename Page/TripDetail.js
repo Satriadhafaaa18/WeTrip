@@ -20,7 +20,7 @@ export default function TripDetail({ navigation }) {
         </View>
       </View>
 
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <Image
           source={require("../assets/Jepang.png")}
           style={styles.headerImage}
@@ -59,23 +59,74 @@ export default function TripDetail({ navigation }) {
           <Text style={styles.subtitle}>Trip Timeline</Text>
           <View style={styles.timelineCard}>
             <Text style={styles.timelineDate}>14 August 2024</Text>
-            <View style={styles.timelineTextContainer}>
-              <View style={styles.dot}></View>
-              <Text style={styles.timelineText}>
-                Berangkat dari Jakarta (CGK) menuju Tokyo (Haneda International Airport)
-              </Text>
+
+            <View style={styles.listContainer}>
+              <View style={styles.timelineTextContainer}>
+                <View style={styles.dot}></View>
+                <Text style={styles.timelineText}>
+                  Berangkat dari Jakarta (CGK) menuju Tokyo (Haneda
+                  International Airport)
+                </Text>
+              </View>
+              <View style={styles.timelineSubTextContainer}>
+                <View style={styles.miniDot}></View>
+                <Text style={styles.timelineSubText}>
+                  Durasi penerbangan sekitar 7 jam
+                </Text>
+              </View>
             </View>
-            <View style={styles.timelineTextContainer}>
-              <View style={styles.dot}></View>
-              <Text style={styles.timelineText}>
-              Tiba di Tokyo sekitar pukul 16.00 waktu setempat
-              </Text>
+
+            <View style={styles.listContainer}>
+              <View style={styles.timelineTextContainer}>
+                <View style={styles.dot}></View>
+                <Text style={styles.timelineText}>
+                  Tiba di Tokyo sekitar pukul 16.00 waktu setempat
+                </Text>
+              </View>
+              <View style={styles.timelineSubTextContainer}>
+                <View style={styles.miniDot}></View>
+                <Text style={styles.timelineSubText}>
+                  Proses imigrasi dan pengambilan bagasi
+                </Text>
+              </View>
+              <View style={styles.timelineSubTextContainer}>
+                <View style={styles.miniDot}></View>
+                <Text style={styles.timelineSubText}>
+                  Naik kereta Narita Express menuju Tokyo Station (60 menit)
+                </Text>
+              </View>
             </View>
-            <View style={styles.timelineTextContainer}>
-              <View style={styles.dot}></View>
-              <Text style={styles.timelineText}>
-              Check-in di hotel Tokyo
-              </Text>
+
+            <View style={styles.listContainer}>
+              <View style={styles.timelineTextContainer}>
+                <View style={styles.dot}></View>
+                <Text style={styles.timelineText}>Check-in di hotel Tokyo</Text>
+              </View>
+              <View style={styles.timelineSubTextContainer}>
+                <View style={styles.miniDot}></View>
+                <Text style={styles.timelineSubText}>Dinner</Text>
+              </View>
+              <View style={styles.timelineSubTextContainer}>
+                <View style={styles.miniDot}></View>
+                <Text style={styles.timelineSubText}>
+                  Istirahat / free time
+                </Text>
+              </View>
+            </View>
+          </View>
+          <Text style={styles.subtitle}>Contact Us</Text>
+          <View style={styles.contactContainer}>
+            <View style={styles.buttonContainer}>
+              <Ionicons name="people" size={20} color={"#0078B7"} style={{marginRight: 3}}/>
+              <Text style={styles.buttonTitle}>Customer Service</Text>
+            </View>
+            <View style={styles.buttonContainer}>
+              <Ionicons name="chatbubble" size={20} color={"#0078B7"} style={{marginRight: 3}}/>
+              <Text style={styles.buttonTitle}>Chat Japan Trip Club</Text>
+            </View>
+            <View style={styles.buttonContainer}>
+              <Ionicons name="mail" size={20} color={"#0078B7"} style={{marginRight: 3}}/>
+              <Text style={styles.buttonTitle}>wetrip@gmail.com</Text>
             </View>
           </View>
         </View>
@@ -168,22 +219,61 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginBottom: 5,
   },
-  timelineTextContainer:{
+  listContainer: {
+    marginBottom: 10,
+  },
+  timelineTextContainer: {
     flexDirection: "row",
-    alignItems: 'center',
-    marginBottom: 10
   },
   dot: {
     width: 8,
     height: 8,
     borderRadius: 4,
-    backgroundColor: 'black',
-    marginRight: 5,
+    backgroundColor: "black",
+    marginRight: 4,
+    marginTop: 5,
   },
   timelineText: {
     lineHeight: 18,
     color: "black",
     fontWeight: "bold",
+  },
+  timelineSubTextContainer: {
+    flexDirection: "row",
+    marginLeft: 10,
+    alignItems: "center",
+    // backgroundColor: "red"
+  },
+  miniDot: {
+    width: 3,
+    height: 3,
+    borderRadius: 3 / 2,
+    backgroundColor: "black",
+    marginRight: 4,
+  },
+  timelineSubText: {
+    fontSize: 10,
+    color: "black",
+  },
+  contactContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginBottom: 20
+  },
+  buttonContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    height: 40,
+    width: 120,
+    borderRadius: 8,
+    marginRight: 5,
+    flexShrink: 1,
+    padding: 1,
+    borderWidth: 0.1
+  },
+  buttonTitle: {
+    fontSize: 9,
+    lineHeight: 10
   },
   bookButton: {
     backgroundColor: "#00B4D7",

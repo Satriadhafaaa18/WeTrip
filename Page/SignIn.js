@@ -8,7 +8,22 @@ export default function SignIn({ navigation }) {
         source={require("../assets/Background.png")}
         style={styles.background}
       />
-      <Text style={styles.title}>Sign In</Text>
+      <View style={styles.header}>
+        <TouchableOpacity
+          style={styles.backButton}
+          onPress={() => navigation.goBack()}
+        >
+          <Image
+            source={require("../assets/ArrowBack.png")}
+            style={styles.backIcon}
+          />
+        </TouchableOpacity>
+      </View>
+
+      <View style={styles.titleContainer}>
+        <Text style={styles.title}>Sign In</Text>
+      </View>
+
       <View style={styles.formContainer}>
         <TextInput
           style={styles.input}
@@ -28,7 +43,7 @@ export default function SignIn({ navigation }) {
         </TouchableOpacity>
 
         <View style={styles.signUpContainer}>
-          <Text style={{color: "white"}}>Or continue with</Text>
+          <Text style={{ color: "white" }}>Or continue with</Text>
         </View>
 
         <View style={styles.socialContainer}>
@@ -53,9 +68,9 @@ export default function SignIn({ navigation }) {
         </View>
 
         <View style={styles.signUpContainer}>
-          <Text style={{color: "white"}}>Don't have an account? </Text>
+          <Text style={{ color: "white" }}>Don't have an account? </Text>
           <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
-            <Text style={{textDecorationLine: "underline"}}>Sign Up</Text>
+            <Text style={{ textDecorationLine: "underline" }}>Sign Up</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -68,19 +83,39 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
   },
-  background:{
+  background: {
     position: "absolute",
-    zIndex: 0
+    zIndex: 0,
+  },
+  header: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginTop: 40,
+    marginHorizontal: 16,
+  },
+  backButton: {
+  },
+  backIcon: {
+    width: 24,
+    height: 24,
+  },
+  titleContainer: {
+    marginHorizontal: 16,
   },
   formContainer: {
-    marginTop:350,
+    marginTop: 350,
     paddingHorizontal: 20,
   },
   title: {
+<<<<<<< HEAD
     fontSize: 30,
     fontWeight: "bold",
     textAlign: "center",
     marginVertical: 50,
+=======
+    fontSize: 36,
+    textAlign: "center",
+>>>>>>> d8774be602c23a9b07c6ebdb802e40324aa35c77
   },
   input: {
     height: 50,
