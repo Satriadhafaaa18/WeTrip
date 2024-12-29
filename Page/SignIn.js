@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  View,
-  TextInput,
-  TouchableOpacity,
-  Text,
-  Image,
-  StyleSheet,
-} from "react-native";
+import {View,TextInput,TouchableOpacity,Text,Image,StyleSheet,} from "react-native";
 
 export default function SignIn({ navigation }) {
   return (
@@ -84,10 +77,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   title: {
-    fontSize: 24,
-    fontWeight: "600",
-    marginTop: 60,
-    marginLeft: 20,
+    fontSize: 30,
+    fontWeight: "bold",
+    textAlign: "center",
+    marginVertical: 50,
   },
   input: {
     height: 50,

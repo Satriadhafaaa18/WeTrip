@@ -1,13 +1,5 @@
 import React, { useState } from 'react';
-import {
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  StyleSheet,
-  ImageBackground,
-  Image,
-} from 'react-native';
+import {View,Text,TextInput,TouchableOpacity,StyleSheet,ImageBackground,Image,} from 'react-native';
 
 const Payment = ({ navigation }) => {
   const [selectedMethod, setSelectedMethod] = useState(null);
@@ -26,6 +18,24 @@ const Payment = ({ navigation }) => {
       source={require('../assets/BgPayment.png')}
       style={styles.backgroundImage}
     >
+     <View style={styles.Klik}>
+           <TouchableOpacity 
+              onPress={() => navigation.navigate('BookingSummary')}
+              style={styles.backButton}>
+             <Image 
+               source={require('../assets/PanahKiri.png')} 
+               style={styles.backIcon}/>
+             </TouchableOpacity>
+           </View>
+
+      <View style={styles.frameContainer}>
+              <Image 
+                source={require('../assets/FrameBiru.png')} 
+                style={styles.frameImage}
+                resizeMode="stretch"
+              />
+              </View>
+
       <View style={styles.container}>
         <View style={styles.card}>
           <Image
@@ -133,7 +143,28 @@ const styles = StyleSheet.create({
     backgroundImage: {
       flex: 1,
       width: '100%',
-      height: '100%',
+      height: '33%',
+    },
+    backButton: {
+      padding: 16,
+    },
+    backIcon: {
+      width: 24,
+      height: 24,
+      top: 40,
+      left: 15,
+    },
+    frameContainer: {
+      flex: 1,
+      position: 'relative',
+      
+    },
+    frameImage: {
+      position: 'absolute',
+      width: '100%',
+      height: '200%',
+      top: 180,
+      left: 0,
     },
     container: {
       flex: 1,
@@ -142,21 +173,25 @@ const styles = StyleSheet.create({
     card: {
       backgroundColor: 'white',
       borderRadius: 20,
+      borderWidth: 1,
+      borderColor: "#00B4D7",
       padding: 20,
       marginTop: 20,
       elevation: 5,
+      top: -285,
     },
     locationIcon: {
-      width: 40,
-      height: 40,
+      width: 100,
+      height: 100,
+      top: -70,
       alignSelf: 'center',
-      marginBottom: 10,
+      marginBottom: -60,
     },
     title: {
       fontSize: 24,
       fontWeight: 'bold',
       textAlign: 'center',
-      marginBottom: 20,
+      marginBottom: 25,
     },
     subtitle: {
       fontSize: 18,
@@ -217,10 +252,12 @@ const styles = StyleSheet.create({
     },
     button: {
       backgroundColor: '#00BCD4',
-      borderRadius: 10,
-      padding: 15,
-      alignItems: 'center',
-      marginTop: 20,
+     borderRadius: 60,
+     padding: 13,
+     width: 265,
+     alignItems: 'center',
+     marginTop: 20,
+     left: 32,
     },
     buttonText: {
       color: 'white',

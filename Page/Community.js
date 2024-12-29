@@ -1,13 +1,5 @@
 import React, { useState } from "react";
-import {
-  View,
-  Text,
-  TextInput,
-  ScrollView,
-  Image,
-  TouchableOpacity,
-  StyleSheet,
-} from "react-native";
+import {View,Text,TextInput,ScrollView,Image,TouchableOpacity,StyleSheet,} from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import Footer from "../Components/Footer";
 
@@ -18,7 +10,7 @@ export default function Community({ navigation }) {
       name: "Alexander",
       userName: "@alexander1997",
       time: "20 min ago",
-      comment: `Kuliner Semarang, yuk sini kalau beken cobaLumpia Semarang! Roti GandosPetis! Sego Kucing! yuk yuk jajen data utadigi lihat kanggo!`,
+      comment: `Kalau ke Semarang, gak sah kalau belum coba Lumpia Semarang! Roti lumpia yang digulung dengan isian ayam atau udang ini enak banget`,
       like: 139,
       commentCount: 15,
     },
@@ -187,7 +179,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginLeft: 16,
     fontSize: 20,
-    color: "red",
+    color: "black",
   },
   sectionTitle: {
     fontSize: 18,

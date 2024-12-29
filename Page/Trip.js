@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import {View,Text,Image,TouchableOpacity,StyleSheet,SafeAreaView,} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import Footer from "../Components/Footer";
 
-// TripCard Component
+
+
 const TripCard = ({ image, title, status, onReviewPress }) => {
   return (
     <View style={styles.card}>
@@ -14,7 +16,7 @@ const TripCard = ({ image, title, status, onReviewPress }) => {
             <Text style={styles.statusLabel}>Status: </Text>
             <Text style={[
               styles.statusValue,
-              { color: status === 'Active' ? '#007AFF' : '#4CD964' }
+              { color: status === 'Active' ? '#2ED30D' : '#007AFF' } 
             ]}>
               {status}
             </Text>
@@ -35,10 +37,11 @@ const TripCard = ({ image, title, status, onReviewPress }) => {
         </View>
       </View>
     </View>
+    
   );
 };
 
-// Trip Screen
+
 const Trip = () => {
   const navigation = useNavigation();
   const [activeTab, setActiveTab] = useState('active');
@@ -55,7 +58,7 @@ const Trip = () => {
     completed: [
       {
         id: 2,
-        title: 'London Trip : The Big Ben',
+        title: 'London Trip : The Big Beng',
         image: require('../assets/LondonTrip.png'),
         status: 'Completed'
       }
@@ -98,9 +101,12 @@ const Trip = () => {
           onReviewPress={() => navigation.navigate('Review', { trip })}
         />
       ))}
-    </SafeAreaView>
+      <Footer navigation={navigation} activeScreen={"Trip"} />
+      </SafeAreaView>
   );
 };
+
+
 
 
 
@@ -109,6 +115,14 @@ tabContainer: {
     flexDirection: 'row',
     paddingHorizontal: 20,
     marginBottom: 20,
+    top: 20,
+  },
+  header: {
+    fontSize: 20,
+      fontWeight: 'bold',
+      textAlign: 'center',
+      marginVertical: 25,
+      top: 20,
   },
   tab: {
     flex: 1,
@@ -120,7 +134,7 @@ tabContainer: {
     borderBottomColor: '#007AFF',
   },
   tabText: {
-    fontSize: 16,
+    fontSize: 18,
     color: '#666',
   },
   activeTabText: {
@@ -137,10 +151,11 @@ tabContainer: {
     shadowOpacity: 0.1,
     shadowRadius: 8,
     elevation: 5,
+    top: 25,
   },
   cardImage: {
     width: '100%',
-    height: 150,
+    height: 100,
     borderTopLeftRadius: 15,
     borderTopRightRadius: 15,
   },

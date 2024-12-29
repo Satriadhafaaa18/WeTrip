@@ -1,13 +1,5 @@
 import React, { useState } from "react";
-import {
-  View,
-  Text,
-  Image,
-  TextInput,
-  ScrollView,
-  TouchableOpacity,
-  StyleSheet,
-} from "react-native";
+import {View,Text,Image,TextInput,ScrollView,TouchableOpacity,StyleSheet,} from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import Footer from "../Components/Footer";
 import { LinearGradient } from "expo-linear-gradient";
@@ -217,7 +209,7 @@ const styles = StyleSheet.create({
   categoryScroll: {
     marginHorizontal: 16,
     marginTop: 20,
-    // backgroundColor: "red"
+    
   },
   categoryCard: {
     marginRight: 20,

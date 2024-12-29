@@ -1,9 +1,13 @@
 import React from 'react';
-import { View, TextInput, TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { View, TextInput, TouchableOpacity, Text, StyleSheet ,Image} from 'react-native';
+
 
 export default function SignUp({ navigation }) {
   return (
     <View style={styles.container}>
+            <Image
+              source={require("../assets/Background.png")}
+              style={styles.background}/>
       <Text style={styles.title}>Sign Up</Text>
       <View style={styles.formContainer}>
         <TextInput 
@@ -12,13 +16,13 @@ export default function SignUp({ navigation }) {
         />
         <TextInput 
           style={styles.input}
-          placeholder="Email"
-          keyboardType="email-address"
+          placeholder="Phone"
+          keyboardType="phone-pad"
         />
         <TextInput 
           style={styles.input}
-          placeholder="Password"
-          secureTextEntry
+          placeholder="Email"
+          keyboardType="email-address"
         />
         <TextInput 
           style={styles.input}
@@ -47,23 +51,28 @@ const styles = StyleSheet.create({
       flex: 1,
       backgroundColor: '#fff',
     },
+    background:{
+      position: "absolute",
+      zIndex: 0
+    },
     title: {
-      fontSize: 24,
-      fontWeight: '600',
-      marginTop: 60,
-      marginLeft: 20,
+     fontSize: 30,
+     fontWeight: "bold",
+     textAlign: "center",
+     marginVertical: 30,
     },
     formContainer: {
-      marginTop: 20,
+      marginTop:350,
       paddingHorizontal: 20,
+    
     },
     input: {
       height: 50,
-      backgroundColor: '#fff',
-      borderRadius: 10,
-      paddingHorizontal: 15,
+      backgroundColor: "#fff",
+      borderRadius: 24,
+      paddingHorizontal: 25,
       marginBottom: 15,
-      shadowColor: '#000',
+      shadowColor: "#000",
       shadowOffset: {
         width: 0,
         height: 2,
@@ -73,12 +82,13 @@ const styles = StyleSheet.create({
       elevation: 3,
     },
     button: {
-      backgroundColor: '#003580',
-      height: 50,
-      borderRadius: 10,
-      justifyContent: 'center',
-      alignItems: 'center',
-      marginVertical: 20,
+     backgroundColor: "#003580",
+     height: 50,
+     borderRadius: 24,
+     justifyContent: "center",
+     alignItems: "center",
+     marginTop: 10,
+     marginBottom: 30,
     },
     buttonText: {
       color: '#fff',

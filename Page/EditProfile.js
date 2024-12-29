@@ -74,63 +74,12 @@ const EditProfile = () => {
     container: {
         flex: 1,
         backgroundColor: '#fff',
-    },
-      
+    },  
     backgroundImage: {
         width: '100%',
         height: 200,
         position: 'absolute',
         top: 0,
-    },
-  tripCard: {
-    width: 250,
-    marginRight: 15,
-    backgroundColor: '#fff',
-    borderRadius: 15,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
-  },
-  tripImage: {
-    width: '100%',
-    height: 150,
-    borderTopLeftRadius: 15,
-    borderTopRightRadius: 15,
-  },
-  tripContent: {
-    padding: 10,
-  },
-  tripTitle: {
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
-  tripDate: {
-    color: '#666',
-    marginVertical: 5,
-  },
-  tripDescription: {
-    color: '#444',
-    fontSize: 12,
-  },
-  settingsItem: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingVertical: 15,
-    borderBottomWidth: 1,
-    borderBottomColor: '#eee',
-  },
-  settingsTitle: {
-    fontSize: 16,
-  },
-  arrow: {
-    fontSize: 20,
-    color: '#666',
   },
   editProfileContainer: {
     marginTop: 150,
@@ -142,37 +91,48 @@ const EditProfile = () => {
     alignItems: 'center',
   },
   editProfilePic: {
-    width: 100,
-    height: 100,
+    width: 150,
+    height: 150,
     borderRadius: 50,
     marginBottom: 20,
+    top: -90,
   },
   inputContainer: {
     width: '100%',
+    top: -90,
+    
   },
   inputLabel: {
     color: '#666',
     marginBottom: 5,
+    
   },
   input: {
     borderWidth: 1,
-    borderColor: '#ddd',
-    borderRadius: 10,
+    borderColor: '#00BCD4',
+    borderWidth: 1,
+    borderRadius: 50,
     padding: 12,
     marginBottom: 15,
   },
   saveButton: {
     backgroundColor: '#00BCD4',
-    paddingHorizontal: 40,
-    paddingVertical: 12,
+    paddingHorizontal: 60,
+    paddingVertical: 10,
     borderRadius: 25,
     marginTop: 20,
+    top: -95,
+    left: 10,
   },
   saveButtonText: {
     color: '#fff',
     fontSize: 16,
     fontWeight: 'bold',
   },
+  backIcon: {
+    top: 40,
+    left: 20,
+},
 });
 
 export default EditProfile;

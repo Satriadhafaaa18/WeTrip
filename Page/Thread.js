@@ -1,12 +1,5 @@
 import React, { useState } from "react";
-import {
-  View,
-  Text,
-  ScrollView,
-  Image,
-  TouchableOpacity,
-  StyleSheet,
-} from "react-native";
+import {View,Text,ScrollView,Image,TouchableOpacity,StyleSheet,} from "react-native";
 import Footer from "../Components/Footer";
 import { Ionicons } from "@expo/vector-icons";
 
@@ -25,7 +18,7 @@ export default function Thread ({ navigation }) {
         email: "alexsmith@dummy",
         avatar: require("../assets/Profile1.png"),
       },
-      description: "Day trips from Kyoto offer diverse cultural experiences...",
+      description: "Hey, guys! Di vlog kali ini, aku bakal bawa kalian jalan-jalan seru ke Kyoto, bareng Japan Trip Club! Kita bakal eksplor kuil-kuil kece, taman-taman asri, dan pastinya makan-makan enak yang wajib banget dicoba. Semua momen seru dan pengalaman unik barengJapan Trip Club, yuk ikutin perjalanan liburan aku di Kyoto dan rasainsendiri serunya!",
     },
     {
       id: 2,
@@ -40,7 +33,7 @@ export default function Thread ({ navigation }) {
         email: "sarah@mail",
         avatar: require("../assets/Profile2.png"),
       },
-      description: "Exploring the vibrant street food scene in Korea...",
+      description: "Hey, guys! Kali ini aku bakal bawa kalian keliling Seoul nyobain street food yang enak banget! Dari tteokbokki pedas, hotteok manis, samgyetang, sampai churros Korea yang crispy! Semua jajanan khas Korea yang wajib dicoba banget kalau lagi di Seoul. Yuk, ikutin perjalanan aku nyobain makanan-makanan street food yang bikin nagih, dan rasain serunya eksplor kuliner Seoul bareng Japan Trip Club!",
     },
   ]);
 

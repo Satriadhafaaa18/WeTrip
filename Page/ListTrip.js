@@ -1,13 +1,5 @@
 import React from "react";
-import {
-  View,
-  Text,
-  Image,
-  TextInput,
-  ScrollView,
-  TouchableOpacity,
-  StyleSheet,
-} from "react-native";
+import {View,Text,Image,TextInput,ScrollView,TouchableOpacity,StyleSheet,} from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import Footer from "../Components/Footer";
 
@@ -34,7 +26,7 @@ export default function ListTrip({ navigation }) {
         <View style={styles.searchContainer}>
           <TextInput
             style={styles.searchInput}
-            placeholder="Search community"
+            placeholder="Search"
             placeholderTextColor="gray"
           />
           <Ionicons name="search" size={20} color="gray" />

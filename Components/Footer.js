@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet,Image } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
 export default function Footer({ navigation, activeScreen }) {
@@ -45,14 +45,13 @@ export default function Footer({ navigation, activeScreen }) {
         style={styles.navItemTrip}
         onPress={() => navigation.navigate("Trip")}
       >
-        <Ionicons
-          name="location"
-          size={50}
-          color="red"
+        <Image
+        source={require('../assets/LocBooking.png')}
+        style={styles.locationIcon}
         />
         <Text
           style={[
-            styles.navText,
+            styles.navTextTrip,
             activeScreen === "Trip" && styles.activeNavText,
           ]}
         >
@@ -109,6 +108,10 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderTopColor: "#eee",
   },
+  locationIcon: {
+    width: 80,
+    height: 80,
+  },
   navItem: {
     alignItems: "center",
   },
@@ -117,6 +120,13 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: "semibold",
     marginBottom: 2,
+  },
+  navTextTrip: {
+    color: "#666",
+    fontSize: 12,
+    fontWeight: "semibold",
+    marginBottom: 2,
+    top: -5,
   },
   activeNavText: {
     color: "#00B4D8",
@@ -131,7 +141,7 @@ const styles = StyleSheet.create({
     borderRadius: 100/2,
     borderWidth: 2,
     borderColor: "white",
-    backgroundColor: "#CAF1F8",
+    backgroundColor: "white",
     justifyContent: 'center',
     alignItems: 'center',
   },
